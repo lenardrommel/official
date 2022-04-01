@@ -1,0 +1,17 @@
+# for people who want to import a csv with ',' as seperator.
+
+import numpy as np
+
+
+data = np.genfromtxt('data.csv', dtype=str, skip_header=0, delimiter=';')
+data0 = np.zeros_like(data, dtype=float)
+
+for i in range(len(data)):
+    for j in range(len(data[0])):
+        tmp = data[i, j]
+        data[i, j] = tmp.replace(',', '.')
+        if data[i, j] == '':
+            data[i, j] = '0.0'
+        data0[i, j] = data[i, j].astype(float)
+
+data = data0
