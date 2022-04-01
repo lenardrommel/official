@@ -15,3 +15,5 @@ for i in range(len(data)):
         data0[i, j] = data[i, j].astype(float)
 
 data = data0
+
+np.savetxt('data.csv', data0)
